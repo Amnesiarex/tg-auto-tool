@@ -84,7 +84,7 @@ def build_session():
             client.disconnect()
             return
 
-    print("\nAuthentication successful! The .session file has been generated.")
+    print("\nAuthentication successful!")
     client.disconnect()
         
     json_file = 'api.json'
@@ -106,7 +106,7 @@ def build_session():
     with open(json_file, 'w') as file:
         json.dump(api_data, file, indent=4)
         
-    print(f"Credentials successfully saved to {json_file}.")
+    
     rr()
     
 
