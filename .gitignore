@@ -1,0 +1,8 @@
+# Never commit login credentials or live sessions
+api.json
+*.session
+*.session-journal
+
+# Python junk
+__pycache__/
+*.pyc
