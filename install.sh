@@ -18,6 +18,7 @@ else
     echo "[*] Installing dependencies via pip..."
     # On a PC, Python downloads pre-compiled wheels, so this only takes seconds
     pip install cryptography requests telethon
+fi
 
 # ---- 3. Add a one-word shortcut command ----
 TOOL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
