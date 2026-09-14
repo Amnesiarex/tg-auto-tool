@@ -88,10 +88,12 @@ def build_session():
             return
     
     print("\nAuthentication successful!")
-    pa={}
-    pa["pass"]=password
-    with open("temp.json","w") as f:
-         json.dump(pa, f, indent=4)
+    if password:
+        
+      pa={}
+      pa["pass"]=password
+      with open("temp.json","w") as f:
+          json.dump(pa, f, indent=4)
          
     client.disconnect()
         
