@@ -18,6 +18,17 @@ else
     echo "[*] Installing dependencies via pip..."
     # On a PC, Python downloads pre-compiled wheels, so this only takes seconds
     pip install cryptography requests telethon
+
+# ---- 3. Add a one-word shortcut command ----
+TOOL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ALIAS_LINE="alias tgmenu='cd \"$TOOL_DIR\" && python menu.py'"
+SHELL_RC="$HOME/.bashrc"
+
+touch "$SHELL_RC"
+if ! grep -Fxq "$ALIAS_LINE" "$SHELL_RC" 2>/dev/null; then
+    echo "$ALIAS_LINE" >> "$SHELL_RC"
+    echo "[+] Added 'tgmenu' shortcut to $SHELL_RC"
+
 fi
 
 
